@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Intents</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_web">Abrir página web</string>
+    <string name="btn_telefono">Llamada de teléfono</string>
+    <string name="btn_maps">Google Maps</string>
+    <string name="btn_foto">Hacer foto</string>
+    <string name="btn_correo">Mandar correo</string>
+    <string name="btn_buscar">Búsqueda web</string>
+    <string name="btn_telefono2">Dialer de teléfono</string>
+    <string name="btn_sv">Street View</string>
+    <string name="btn_compartir">Compartir con ...</string>
+</resources>
