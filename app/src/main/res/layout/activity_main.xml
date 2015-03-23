@@ -45,28 +45,34 @@
         android:text="@string/btn_correo"
         android:onClick="mandarCorreo" />
 
-    <!-- <Button
+    <Button
         android:id="@+id/botonBuscar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_buscar" />
+        android:text="@string/btn_buscar"
+        android:onClick="buscar"
+        android:nestedScrollingEnabled="true" />
 
     <Button
         android:id="@+id/botonDialer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_telefono2" />
+        android:text="@string/btn_telefono2"
+        android:nestedScrollingEnabled="true"
+        android:onClick="llamadaTelefono2" />
 
     <Button
         android:id="@+id/botonSV"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_sv" />
+        android:text="@string/btn_sv"
+        android:onClick="streetView" />
 
     <Button
         android:id="@+id/botonCompartir"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_compartir" /> -->
+        android:text="@string/btn_compartir"
+        android:onClick="compartir" />
 
 </LinearLayout>
