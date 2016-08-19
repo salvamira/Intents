@@ -1,20 +1,28 @@
 package net.somtic.intents;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -47,9 +55,18 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void llamadaTelefono(View view) {
-        Intent intent = new Intent(Intent.ACTION_CALL,
-                Uri.parse("tel:966870700"));
-        startActivity(intent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (this.checkSelfPermission(
+                    Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:966870700"));
+                startActivity(intent);
+            }
+        } else {
+            Intent intent = new Intent(Intent.ACTION_CALL,
+                    Uri.parse("tel:966870700"));
+            startActivity(intent);
+        }
     }
 
 
