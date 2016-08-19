@@ -1,6 +1,7 @@
 package net.somtic.intents;
 
 import android.Manifest;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -89,5 +90,36 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_EMAIL,
                 new String[] {"smira@iesperemaria.com" });
         startActivity(intent);
+    }
+
+    // Realizar una búsqueda en google
+    public void buscar(View view) {
+        Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+        intent.putExtra(SearchManager.QUERY, "IES Pere Maria Orts");
+        startActivity(intent);
+    }
+
+    public void llamadaTelefono2(View view) {
+        Intent intent = new Intent(Intent.ACTION_DIAL,
+                Uri.parse("tel:966870700"));
+        startActivity(intent);
+    }
+
+    public void streetView(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("google.streetview:cbll=38.553468,-0.121579"));
+        startActivity(intent);
+    }
+
+    // Compartir con ...
+    public void compartir(View v) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT,"Compartido desde IES Pere Maria Orts");
+        intent.setType("text/plain");
+        String titulo = getResources().getString(R.string.btn_compartir);
+        Intent chooser = Intent.createChooser(intent, titulo);
+        if (chooser.resolveActivity(getPackageManager()) != null) {
+            startActivity(chooser);
+        }
     }
 }
